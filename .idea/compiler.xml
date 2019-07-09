@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="teduService" />
+        <module name="teduMapper" />
+        <module name="teduCommon" />
+        <module name="teduUser" />
+        <module name="teduAdmin" />
+        <module name="teduPojo" />
+      </profile>
+    </annotationProcessing>
+    <bytecodeTargetLevel>
+      <module name="teduAdmin" target="1.8" />
+      <module name="teduCommon" target="1.8" />
+      <module name="teduMapper" target="1.8" />
+      <module name="teduParent" target="1.8" />
+      <module name="teduPojo" target="1.8" />
+      <module name="teduService" target="1.8" />
+      <module name="teduUser" target="1.8" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

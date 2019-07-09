@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.gues.mapper.CartItemMapper">
+
+    <insert id="insert" parameterType="CartItem">
+        insert into tb_cart_item(id, userId, product, count) VALUES(#{id},#{userId},#{product},#{count})
+    </insert>
+
+    <update id="update" parameterType="CartItem">
+        update tb_cart_item set
+            userId = #{userId},
+            product = #{product},
+            count = #{count}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from tb_cart_item where id = #{id}
+    </delete>
+
+    <delete id="deleteByFirstId" parameterType="Long">
+        delete from tb_cart_item where userId = #{userId}
+    </delete>
+
+    <delete id="deleteBySecondId" parameterType="Long">
+        delete from tb_cart_item where product = #{product}
+    </delete>
+
+    <select id="select" parameterType="CartItem" resultType="CartItem">
+        select * from tb_cart_item
+        <where>
+            <if test="id!=null"> and id=#{id} </if>
+            <if test="userId!=null"> and userId=#{userId} </if>
+            <if test="product!=null"> and product=#{product} </if>
+            <if test="count!=null"> and count=#{count} </if>
+        </where>
+    </select>
+
+    <select id="selectFirstListBySecondId" parameterType="Long" resultType="User">
+        select f.*
+        from tb_cart_item fs left join tb_user f on fs.userId=f.phone
+        where fs.product=#{product}
+    </select>
+
+    <select id="selectSecondListByFirstId" parameterType="Long" resultType="Book">
+        select s.*
+        from tb_cart_item fs left join tb_book s on fs.product=s.isbn
+        where fs.userId=#{userId}
+    </select>
+</mapper>

@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.gues.mapper.OrderMapper">
+
+    <insert id="insert" parameterType="Order">
+        insert into tb_order(id, userId, orderId, sta, addressId, payment, placed, receipt, deliver, handover)
+         VALUES(#{id},#{userId},#{orderId},#{sta},#{addressId},#{payment},#{placed},#{receipt},#{deliver},#{handover})
+    </insert>
+
+    <update id="update" parameterType="Order">
+        update tb_order set
+                              userId = #{userId},
+                              orderId = #{orderId},
+                              sta = #{sta},
+                              addressId = #{addressId},
+                              payment = #{payment},
+                              placed = #{placed},
+                              receipt = #{receipt},
+                              deliver = #{deliver},
+                              handover = #{handover}
+        where id = #{id}
+    </update>
+
+    <delete id="delete" parameterType="Long">
+        delete from tb_order where id = #{id}
+    </delete>
+
+    <delete id="deleteByFirstId" parameterType="Long">
+        delete from tb_order where userId = #{userId}
+    </delete>
+
+    <delete id="deleteBySecondId" parameterType="Long">
+        delete from tb_order where addressId = #{addressId}
+    </delete>
+
+    <select id="select" parameterType="Order" resultType="Order">
+        select * from tb_order
+        <where>
+            <if test="id!=null"> and id=#{id} </if>
+            <if test="userId!=null"> and userId=#{userId} </if>
+            <if test="orderId!=null"> and orderId=#{orderId} </if>
+            <if test="sta!=null"> and sta=#{sta} </if>
+            <if test="addressId!=null"> and addressId=#{addressId} </if>
+            <if test="payment!=null"> and payment=#{payment} </if>
+            <if test="placed!=null"> and placed=#{placed} </if>
+            <if test="receipt!=null"> and receipt=#{receipt} </if>
+            <if test="deliver!=null"> and deliver=#{deliver} </if>
+            <if test="handover!=null"> and handover=#{handover} </if>
+        </where>
+    </select>
+
+    <select id="selectFirstListBySecondId" parameterType="Long" resultType="User">
+        select f.*
+        from tb_order fs left join tb_user f on fs.userId=f.phone
+        where fs.addressId=#{addressId}
+    </select>
+
+    <select id="selectSecondListByFirstId" parameterType="Long" resultType="Address">
+        select s.*
+        from tb_order fs left join tb_address s on fs.addressId=s.id
+        where fs.userId=#{userId}
+    </select>
+</mapper>

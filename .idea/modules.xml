@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/tedu.iml" filepath="$PROJECT_DIR$/tedu.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduAdmin/teduAdmin.iml" filepath="$PROJECT_DIR$/teduAdmin/teduAdmin.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduCommon/teduCommon.iml" filepath="$PROJECT_DIR$/teduCommon/teduCommon.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduMapper/teduMapper.iml" filepath="$PROJECT_DIR$/teduMapper/teduMapper.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduParent/teduParent.iml" filepath="$PROJECT_DIR$/teduParent/teduParent.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduPojo/teduPojo.iml" filepath="$PROJECT_DIR$/teduPojo/teduPojo.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduService/teduService.iml" filepath="$PROJECT_DIR$/teduService/teduService.iml" />
+      <module fileurl="file://$PROJECT_DIR$/teduUser/teduUser.iml" filepath="$PROJECT_DIR$/teduUser/teduUser.iml" />
+    </modules>
+  </component>
+</project>

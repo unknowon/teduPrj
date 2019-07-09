@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="teduAdmin:war">
+    <output-path>$PROJECT_DIR$/teduAdmin/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>teduAdmin</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="teduAdmin.war">
+      <element id="artifact" artifact-name="teduAdmin:war exploded" />
+    </root>
+  </artifact>
+</component>
